@@ -1,0 +1,6 @@
+node_modules/ 
+release/ 
+dist/ 
+rsvp-reader/node_modules/ 
+rsvp-reader/release/ 
+rsvp-reader/dist/ 
