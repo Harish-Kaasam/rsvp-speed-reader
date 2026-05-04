@@ -1,0 +1,53 @@
+appId: com.rsvpreader.app
+productName: RSVP Speed Reader
+copyright: Copyright 2024 RSVP Speed Reader
+
+# Build resource folder (contains icon files)
+directories:
+  buildResources: assets
+  output: release
+
+# Files to package into the app asar
+files:
+  - dist/**/*
+  - electron/**/*
+  - package.json
+  - "!node_modules/**/*"
+  - "!src/**/*"
+  - "!release/**/*"
+  - "!*.md"
+
+# ── Windows ────────────────────────────────────────────────────────────────
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  icon: assets/icon.ico
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: RSVP Speed Reader
+  installerIcon: assets/icon.ico
+  uninstallerIcon: assets/icon.ico
+  license: null
+
+# ── macOS ───────────────────────────────────────────────────────────────────
+mac:
+  icon: assets/icon.icns
+  target: dmg
+  category: public.app-category.productivity
+
+# ── Linux ───────────────────────────────────────────────────────────────────
+linux:
+  icon: assets/icon.png
+  target: AppImage
+  category: Office
+
+# ── Extra metadata ─────────────────────────────────────────────────────────
+extraMetadata:
+  main: electron/main.js

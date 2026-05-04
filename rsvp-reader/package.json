@@ -1,0 +1,33 @@
+{
+  "name": "rsvp-speed-reader",
+  "version": "1.0.0",
+  "description": "A production-ready RSVP Speed Reader desktop application",
+  "main": "electron/main.js",
+  "homepage": "./",
+  "author": "RSVP Speed Reader",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron:dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "electron:build": "vite build && node scripts/warmup-codesign-cache.js && electron-builder --win",
+    "electron:build:all": "vite build && electron-builder --win --mac --linux",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0",
+    "pdfjs-dist": "^4.0.379",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.0",
+    "concurrently": "^8.2.0",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.0",
+    "vite": "^5.0.0",
+    "wait-on": "^7.2.0"
+  }
+}
